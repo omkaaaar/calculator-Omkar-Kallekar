@@ -2,7 +2,7 @@ let input = document.getElementById('inputBox');
 let buttons = document.querySelectorAll('button');
 
 let string = "";
-let resultDisplayed = false;  // This flag will indicate if the result is currently displayed
+let resultDisplayed = false;  
 let arr = Array.from(buttons);
 
 arr.forEach(button => {
@@ -12,19 +12,18 @@ arr.forEach(button => {
         if (buttonText == '=') {
             string = eval(string);
             input.value = string;
-            resultDisplayed = true;  // Set the flag to true after displaying the result
+            resultDisplayed = true;  
         } else if (buttonText == 'AC') {
             string = "";
             input.value = string;
-            resultDisplayed = false;  // Reset the flag
+            resultDisplayed = false;  
         } else if (buttonText == 'DEL') {
             string = string.slice(0, -1);
             input.value = string;
         } else {
             if (resultDisplayed) {
-                // If the result is displayed and a number is pressed, start a new expression
-                string = buttonText;
-                resultDisplayed = false;  // Reset the flag
+            string = buttonText;
+                resultDisplayed = false;  
             } else {
                 string += buttonText;
             }
@@ -32,4 +31,3 @@ arr.forEach(button => {
         }
     });
 });
-
